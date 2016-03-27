@@ -6,10 +6,12 @@ import java.util.Scanner;
 /**
  * Created by alexey.simakov on 08.03.2016.
  */
-public class TaskValueOfExpression {
+class TaskValueOfExpression {
 
     void startTask(){
-        System.out.println("Формула: (x^2 - 7*x + 10) / (x^2 - 8*x + 12)\n" +
+        System.out.println("Вычислить значение выражения по формуле " +
+                "(все переменные принимают действительные значения).\n" +
+                "Формула: (x^2 - 7*x + 10) / (x^2 - 8*x + 12)\n" +
                 "Введите х:");
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         double in = Double.parseDouble(scanner.nextLine());
@@ -18,7 +20,7 @@ public class TaskValueOfExpression {
         if (scanner.nextLine().matches("[nNнН]")) System.exit(0);
     }
 
-    double getValue(double x){
+    private double getValue(double x){
         return (x*x - 7.0*x + 10.0) / (x*x - 8.0*x + 12.0);
     }
 

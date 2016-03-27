@@ -10,15 +10,11 @@ public class Util {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.println("Здравствуйте, введите, пожалуйста, номер программы для запуска:\n" +
-                    "1 - Вычислить значение выражения по формуле (все переменные принимают действительные значения).\n" +
-                    "Формула: (x^2 - 7*x + 10) / (x^2 - 8*x + 12)\n\n" +
-                    "2 - Треугольник задан величинами своих углов и радиусом описанной окружности. Найти стороны треугольника.\n\n" +
-                    "3 - Вычислить значение функции\n" +
-                    "F(x) = { \n" +
-                    "-x^2 + 3*x + 9, при x <= 3; \n" +
-                    "x / (x^2 + 1), при x > 3\n" +
-                    "}\n\n" +
+            System.out.println("Здравствуйте, введите, пожалуйста, " +
+                    "номер программы для запуска:\n" +
+                    "1 - Вычислить значение выражения." +
+                    "2 - Найти стороны треугольника." +
+                    "3 - Вычислить значение функции." +
                     "4 - В одномерном массиве, вводимом с клавиатуры и состоящем из 10 вещественных элементов, вычислить:\n" +
                     "1) количество элементов массива, равных 0;\n" +
                     "2) сумму элементов массива, расположенных после минимального элемента.\n\n" +
@@ -26,22 +22,28 @@ public class Util {
                     "AnyKey - Выход");
 
             Scanner scanner = new Scanner(new InputStreamReader(System.in));
-            String n = scanner.nextLine();
+            int n;
+            try {
+                n = scanner.nextInt();
+            } catch (Exception e){
+                System.out.println("Ошибка ввода.");
+                continue;
+            }
             switch (n) {
-                case "1":
+                case 1:
                     new TaskValueOfExpression().startTask();
                     break;
-                case "2":
+                case 2:
                     new TaskTriangle().startTask();
                     break;
-                case "3":
-                    new TaskValueOfFunction();
+                case 3:
+                    new TaskValueOfFunction().startTask();
                     break;
-                case "4":
-                    new TaskAboutArray();
+                case 4:
+                    new TaskAboutArray().startTask();
                     break;
-                case "5":
-                    new SortExpression().startSort();
+                case 5:
+                    new TaskSortingExpressions().startSort();
                     break;
                 default:
                     System.exit(0);

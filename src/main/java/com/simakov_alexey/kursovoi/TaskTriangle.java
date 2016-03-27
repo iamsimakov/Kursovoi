@@ -6,10 +6,11 @@ import java.util.Scanner;
 /**
  * Created by alexey.simakov on 08.03.2016.
  */
-public class TaskTriangle {
+class TaskTriangle {
 
     void startTask(){
-        System.out.println("Треугольник задан величинами своих углов и радиусом описанной окружности. Найти стороны треугольника.\n" +
+        System.out.println("Треугольник задан величинами своих углов и " +
+                "радиусом описанной окружности. Найти стороны треугольника.\n" +
                 "Введите радиус описанной окружности: ");
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         double radius = Double.parseDouble(scanner.nextLine());
@@ -29,7 +30,7 @@ public class TaskTriangle {
 
     }
 
-    double getLength(double radius, double angle){
+    private double getLength(double radius, double angle){
         return 2*Math.sin(angle)*radius;
     }
 
