@@ -26,8 +26,8 @@ class TaskValueOfFunction{
         }
         double x = Double.parseDouble(x_str);
         double res;
-        if (x - 3.0 >= 0) res = getDownValue(x);
-            else res = getUpValue(x);
+        if ((x - 3.0) >= 0) res = getUpValue(x);
+            else res = getDownValue(x);
         System.out.println("Результат равен: " + res);
 
         System.out.println("Продолжить выполнение программы? [y/n][д/н]");

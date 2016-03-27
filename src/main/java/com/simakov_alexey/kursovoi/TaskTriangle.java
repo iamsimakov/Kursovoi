@@ -14,12 +14,12 @@ class TaskTriangle {
                 "Введите радиус описанной окружности: ");
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         double radius = Double.parseDouble(scanner.nextLine());
-        System.out.println("Введите угол A: ");
-        double angleA = Double.parseDouble(scanner.nextLine());
-        System.out.println("Введите угол B: ");
-        double angleB = Double.parseDouble(scanner.nextLine());
-        System.out.println("Введите угол C: ");
-        double angleC = Double.parseDouble(scanner.nextLine());
+        System.out.println("Введите угол A в градусах: ");
+        double angleA = Double.parseDouble(scanner.nextLine()) * Math.PI / 180.0;
+        System.out.println("Введите угол B в градусах: ");
+        double angleB = Double.parseDouble(scanner.nextLine()) * Math.PI / 180.0;
+        System.out.println("Введите угол C в градусах: ");
+        double angleC = Double.parseDouble(scanner.nextLine()) * Math.PI / 180.0;
 
         System.out.println("Для угла А сторона равна: " + getLength(radius, angleA));
         System.out.println("Для угла B сторона равна: " + getLength(radius, angleB));

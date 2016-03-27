@@ -1,10 +1,7 @@
 package com.simakov_alexey.kursovoi;
 
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.*;
 
@@ -32,7 +29,7 @@ public class TaskSortingExpressions {
         }
         System.out.println("Введите строку поиска среди отображенных строк:");
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        addresses.sort(new MyComparator(scanner.nextLine()));
+        Collections.sort(addresses, new MyComparator(scanner.nextLine()));
         System.out.println("Отсортированный список адресов: ");
         for (String addr : addresses){
             System.out.println(addr);
