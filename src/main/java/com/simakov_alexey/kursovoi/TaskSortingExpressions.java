@@ -1,5 +1,7 @@
 package com.simakov_alexey.kursovoi;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.*;
 
@@ -11,23 +13,23 @@ import static org.apache.commons.lang3.StringUtils.*;
 public class TaskSortingExpressions {
 
     public void startSort(){
-        List<String> addresses = Arrays.asList(
-                "Россия УФО Свердловская область Каменск ул. Иванова д. 13 подъезд 1",
-                "Россия ЦФО Липецкая область с.Подгорное ул. Иванова д. 13 подъезд 1",
-                "Россия ЦФО Липецкая область г.Липецк ул. Петрова д. 13 подъезд 1",
-                "Россия ЦФО Липецкая область г.Липецк ул. Иванова д. 14 подъезд 1",
-                "Россия ЦФО Липецкая область г.Липецк ул. Иванова д. 13 подъезд 3",
-                "Россия ЦФО Орловская область г.Орел ул. Королева д. 20 подъезд 3",
-                "Россия ЦФО Орловская область г.Новосиль ул. Ленина д. 13 подъезд 6",
-                "Россия ЦФО Московская область г.Москва ул. Королева д. 99 подъезд 4",
-                "Россия ЦФО Курская область г.Курск ул. Цветаева д. 190 подъезд 2",
-                "Россия ЦФО Курганская область г.Курск ул. Цветаева д. 1 подъезд 1"
-        );
+        Scanner fileScanner;
+        try {
+            fileScanner = new Scanner(new File("addresses.txt"));
+        }
+        catch(FileNotFoundException e){
+            System.out.println("Файл не найден.");
+            return;
+        }
+        List<String> addresses = new ArrayList<String>();
+        while (fileScanner.hasNext()){
+            addresses.add(fileScanner.nextLine());
+        }
         System.out.println("Изначальный список адресов: ");
         for (String addr : addresses){
             System.out.println(addr);
         }
-        System.out.println("Введите строку поиска среди отображенных строк:");
+        System.out.println("Введите строку поиска среди отображенных строк: ");
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         Collections.sort(addresses, new MyComparator(scanner.nextLine()));
         System.out.println("Отсортированный список адресов: ");
